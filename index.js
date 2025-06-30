@@ -10,7 +10,7 @@ app.use(express.json());
 const token = process.env.SLACK_BOT_TOKEN;
 const channel = process.env.CHANNEL_ID;
 
-// ✅ 1. Send a message
+// 1. Send a message
 app.post("/send", async (req, res) => {
   const { text } = req.body;
 
@@ -32,7 +32,7 @@ app.post("/send", async (req, res) => {
   }
 });
 
-// ✅ 2. Edit a message
+// 2. Edit a message
 app.post("/edit", async (req, res) => {
   const { ts, newText } = req.body;
 
@@ -58,7 +58,7 @@ app.post("/edit", async (req, res) => {
   }
 });
 
-// ✅ 3. Delete a message
+// 3. Delete a message
 app.post("/delete", async (req, res) => {
   const { ts } = req.body;
 
@@ -80,7 +80,7 @@ app.post("/delete", async (req, res) => {
   }
 });
 
-// ✅ 4. Get recent messages
+//  4. Get recent messages
 app.get("/messages", async (req, res) => {
   try {
     const response = await axios.get(
@@ -98,7 +98,7 @@ app.get("/messages", async (req, res) => {
   }
 });
 
-// ✅ 5. Schedule a message
+//  5. Schedule a message
 app.post("/schedule", async (req, res) => {
   const { text, postAt } = req.body;
 
@@ -124,8 +124,8 @@ app.post("/schedule", async (req, res) => {
   }
 });
 
-// ✅ Start the server
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log("🚀 Server running on port", PORT);
+  console.log("Server running on port", PORT);
 });
